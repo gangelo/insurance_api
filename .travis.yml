@@ -1,0 +1,17 @@
+dist: trusty
+language: ruby
+cache: bundler
+
+env:
+  global:
+    - RAILS_ENV=test
+
+script:
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
+  - bundle exec rails test
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never

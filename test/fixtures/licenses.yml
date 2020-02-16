@@ -1,0 +1,12 @@
+james_in_oh:
+  agent: james
+  state: 'OH'
+james_in_ky:
+  agent: james
+  state: 'KY'
+gemma_in_oh:
+  agent: gemma
+  state: 'OH'
+ericka_in_ky:
+  agent: ericka
+  state: 'KY'

@@ -1,0 +1,7 @@
+big_city_mutual:
+  name: Big City Mutual Insurance
+  industries: underwater_welding
+omaha_insurance:
+  name: Omaha Insurance Company
+  industries: underwater_welding, construction
+

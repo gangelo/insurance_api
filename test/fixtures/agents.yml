@@ -1,0 +1,20 @@
+james:
+  name: James Willhelm
+  phone_number: (614) 999-9999
+  carriers: big_city_mutual
+gemma:
+  name: Gemma Ritchie
+  phone_number: 594.170.4795
+  carriers: omaha_insurance, big_city_mutual
+hobert:
+  name: Hobert Ryan DDS
+  phone_number: 1-501-950-6320
+  carriers: omaha_insurance
+ericka:
+  name: Ericka Yost
+  phone_number: 1.563.874.2068
+  carriers: big_city_mutual
+whitney:
+  name: Whitney Treutel
+  phone_number: (662) 928-5292
+  carriers: big_city_mutual
