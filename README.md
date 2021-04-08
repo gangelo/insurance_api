@@ -1,13 +1,13 @@
 # A little background information
 
-This code exercise is intended to evaluate your software engineering skills. Your solution will be evaluated based on the ability to produce intended results, cleanliness, adherence to best practices, maintainability, and readability. You should write code like you would if this were an actual assignment. You do not need to gold plate your solution, but we are looking for something more than a script. Ideally your solution would demonstrate your understand of object-oriented principles and best practices.
+This code exercise is intended to evaluate your software engineering skills. Your solution will be evaluated based on the ability to produce intended results, cleanliness, adherence to best practices, maintainability, and readability. You should write code like you would if this were an actual assignment. You do not need to gold plate your solution, but we are looking for something more than a script. Ideally your solution would demonstrate your understanding of object-oriented principles and best practices.
 
 # The Agent Matching problem
 There are 2 important entities that work together in commercial insurance.
 
-**Carriers** create commercial insurance products. Commercial insurance carriers selectively choose which industries they sell commercial insurance policies to. That is to say, depending on the industry a business is in, you may find that some commercial insurance carriers won’t sell you a policy. For example, FarmInsure will underwrite a policy if the business’s industry is peanut farming, but will not sell a policy if the industry is building construction.
+**Carriers** create commercial insurance products. Commercial insurance carriers selectively choose which industries they sell commercial insurance policies to. That is to say, depending on the industry a business is in, you may find that some commercial insurance carriers won’t sell you a policy. For example, FarmInsure will underwrite a policy if the business’s industry is peanut farming but will not sell a policy if the industry is building construction.
 
-**Agents** work with the carriers in order to sell & service commercial insurance policies. Agents are licensed at the state level and have special agreements with any carriers they work with. So for example, Frank Farmer can be licensed in Kentucky and Ohio and has an agreement with FarmInsure. This means Frank Farmer can sell you a FarmInsure policy if your business operates in Ohio, but not if your business operates in Florida. Because Frank Farmer only has an agreement with FarmInsure, he can’t sell products for Homestate or Statewide.
+**Agents** work with the carriers in order to sell & service commercial insurance policies. Agents are licensed at the state level and have special agreements with any carriers they work with. So, for example, Frank Farmer can be licensed in Kentucky and Ohio and has an agreement with FarmInsure. This means Frank Farmer can sell you a FarmInsure policy if your business operates in Ohio, but not if your business operates in Florida. Because Frank Farmer only has an agreement with FarmInsure, he can’t sell products for Homestate or Statewide.
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ $ curl -X GET http://localhost:3000/api/agents -d state=OH -d industry="Professi
 
 3. Expand the previous endpoint such that a GET request to `/api/agents?phone_number=<numerics-only-phone-number>` displays details of the agents whose phone number was supplied.
 
-**HINT**: You'll notice the phone numbers that have been supplied are in multiple different formats. Assume that this is an existing production database with at least 1,000,000 records, and that you can not simply change the initial seed file with the corrected format!
+**HINT**: You'll notice the phone numbers that have been supplied are in multiple different formats. Assume that this is an existing production database with at least 1,000,000 records, and that you cannot simply change the initial seed file with the corrected format!
 
 For example:
 
@@ -116,7 +116,7 @@ Should return the same record.
 ]
 ```
 
-1. Implement a **Policy** model & requisite database tables. This **Policy** model will be sold by an **Agent** and be serviced through a **Carrier**. Additionally, each **Policy** will have the name of the policy holder, the premium amount, and the **Industry** that the policy covers.
+4. Implement a **Policy** model & requisite database tables. This **Policy** model will be sold by an **Agent** and be serviced through a **Carrier**. Additionally, each **Policy** will have the name of the policy holder, the premium amount, and the **Industry** that the policy covers.
 
 Implement an endpoint such that a POST request to `/api/policies` creates a _valid_ **Policy** in the database. For example:
 
