@@ -161,11 +161,6 @@ Rails/UnknownEnv:
     - test
     - production
 
-# Do not use braces for hash literals when they are the last argument of a
-#   method call, unless the last two arguments are both hash literals.
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
-
 # Require children definitions to be nested or compact in classes and modules
 Style/ClassAndModuleChildren:
   Enabled: false
