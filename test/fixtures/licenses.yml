@@ -10,3 +10,15 @@ gemma_in_oh:
 ericka_in_ky:
   agent: ericka
   state: 'KY'
+gene_in_nj:
+  agent: gene
+  state: 'NJ'
+amy_in_nj:
+  agent: amy
+  state: 'NJ'
+daniel_in_nj:
+  agent: daniel
+  state: 'NJ'
+elijah_in_nj:
+  agent: elijah
+  state: 'NJ'

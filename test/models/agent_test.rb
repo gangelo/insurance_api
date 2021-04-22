@@ -34,4 +34,13 @@ class AgentTest < ActiveSupport::TestCase
     assert gemma.carriers.where(name: 'Omaha Insurance Company').any?
     assert_equal 2, gemma.carriers.size
   end
+
+  test 'scope with_phone_number should return agents with the given phone number' do
+    agents = Agent.with_phone_number('2223334444')
+    assert_equal agents.count, 4
+    assert_includes agents, Agent.find_by(name: 'Gene Angelo')
+    assert_includes agents, Agent.find_by(name: 'Amy Angelo')
+    assert_includes agents, Agent.find_by(name: 'Daniel Angelo')
+    assert_includes agents, Agent.find_by(name: 'Elijah Angelo')
+  end
 end

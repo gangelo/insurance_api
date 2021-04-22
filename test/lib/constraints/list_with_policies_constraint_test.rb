@@ -3,12 +3,6 @@
 require 'test_helper'
 
 class ListWithPoliciesConstraintTest < ActiveSupport::TestCase
-  def request(params)
-    OpenStruct.new(params: {}).tap do |o|
-      o.params.merge!(params)
-    end
-  end
-
   test '#matches? returns true when the correct params are present and valid' do
     subject = ListWithPoliciesConstraint.new
     actual = subject.matches?(request(state: 'OH', industry: 'Industry'))

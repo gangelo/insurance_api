@@ -18,3 +18,19 @@ whitney:
   name: Whitney Treutel
   phone_number: (662) 928-5292
   carriers: big_city_mutual
+gene:
+  name: Gene Angelo
+  phone_number: 1-222-333-4444
+  carriers: big_city_mutual
+amy:
+  name: Amy Angelo
+  phone_number: 222-333-4444
+  carriers: big_city_mutual
+daniel:
+  name: Daniel Angelo
+  phone_number: 222.333.4444
+  carriers: big_city_mutual
+elijah:
+  name: Elijah Angelo
+  phone_number: (222) 333-4444
+  carriers: big_city_mutual

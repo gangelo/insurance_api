@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require 'modules/phone_numbers'
+
 class Agent < ApplicationRecord
+  include PhoneNumbers
+
   validates :name, :phone_number, presence: true
   has_many :licenses, dependent: :destroy
   has_many :agent_carriers, dependent: :destroy
@@ -12,4 +16,9 @@ class Agent < ApplicationRecord
          .where("'licenses'.'state' = :state AND 'industries'.'name' = :industry",
            state: state.upcase, industry: industry).distinct
      }
+
+  scope :with_phone_number, lambda \
+    { |phone_number|
+      where('match_phone_number(phone_number, :phone_number)', phone_number: phone_number)
+    }
 end

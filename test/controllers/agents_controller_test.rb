@@ -54,4 +54,60 @@ class AgentsControllerTest < ActionDispatch::IntegrationTest
     json = JSON.parse(response.body)
     assert_equal json, []
   end
+
+  # GET /api/agents?phone_number=<numerics-only-phone-number>
+  test 'Returns :ok and a list of Agent JSON objects if Agents are found having the 10-digit phone number' do
+    get '/api/agents?phone_number=2223334444'
+
+    assert_response :ok
+
+    json = JSON.parse(response.body)
+    assert_not_empty json
+
+    actual = json.each.map { |h| h['id'] }
+    expected = [
+      Agent.find_by(name: 'Gene Angelo'),
+      Agent.find_by(name: 'Amy Angelo'),
+      Agent.find_by(name: 'Daniel Angelo'),
+      Agent.find_by(name: 'Elijah Angelo')
+    ].each.map(&:id)
+
+    assert_equal actual.count, expected.count
+    assert_includes actual, expected[0]
+    assert_includes actual, expected[1]
+    assert_includes actual, expected[2]
+    assert_includes actual, expected[3]
+  end
+
+  test 'Returns :ok and a list of Agent JSON objects if Agents are found having the 11-digit phone number' do
+    get '/api/agents?phone_number=12223334444'
+
+    assert_response :ok
+
+    json = JSON.parse(response.body)
+    assert_not_empty json
+
+    actual = json.each.map { |h| h['id'] }
+    expected = [
+      Agent.find_by(name: 'Gene Angelo'),
+      Agent.find_by(name: 'Amy Angelo'),
+      Agent.find_by(name: 'Daniel Angelo'),
+      Agent.find_by(name: 'Elijah Angelo')
+    ].each.map(&:id)
+
+    assert_equal actual.count, expected.count
+    assert_includes actual, expected[0]
+    assert_includes actual, expected[1]
+    assert_includes actual, expected[2]
+    assert_includes actual, expected[3]
+  end
+
+  test 'Returns :not_found and an empty JSON array objects if Agents are not found having phone number' do
+    get '/api/agents?phone_number=7778889999'
+
+    assert_response :not_found
+
+    json = JSON.parse(response.body)
+    assert_equal json, []
+  end
 end
