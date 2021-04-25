@@ -1,0 +1,11 @@
+policy_1:
+  policy_holder: Gene Angelo
+  premium_amount: 1111.00
+  carrier: statefarm_mutual
+  industry: general_contracting
+
+policy_2:
+  policy_holder: Amy Angelo
+  premium_amount: 2222.00
+  carrier: omaha_insurance
+  industry: snow_plowing

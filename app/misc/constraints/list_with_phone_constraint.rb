@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'modules/phone_numbers'
-
 # Custom constraint for AgentsController#list_with_phone.
 # See phone_param_present_and_valid? method for details.
 class ListWithPhoneConstraint
@@ -20,7 +18,6 @@ class ListWithPhoneConstraint
     # curl http://localhost:3000/api/agents?phone_number=2625296931
     # or
     # curl http://localhost:3000/api/agents?phone_number=12625296931
-
     def phone_param_present_and_valid?(params)
       phone_number = params[:phone_number]
       phone_valid?(phone_number)

@@ -2,3 +2,7 @@ underwater_welding:
   name: Underwater welding
 construction:
   name: Construction
+general_contracting:
+  name: General Contracting
+snow_plowing:
+  name: Snow Plowing

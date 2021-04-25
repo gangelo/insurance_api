@@ -3,5 +3,7 @@ big_city_mutual:
   industries: underwater_welding
 omaha_insurance:
   name: Omaha Insurance Company
-  industries: underwater_welding, construction
-
+  industries: underwater_welding, construction, snow_plowing
+statefarm_mutual:
+  name: State Farm Mutual Insurange
+  industries: general_contracting

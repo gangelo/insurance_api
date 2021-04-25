@@ -1,5 +1,3 @@
-require 'modules/phone_numbers'
-
 # Credit: https://www.marksayson.com/blog/enabling_regular_expressions_in_sqlite_with_rails/
 ActiveRecord::ConnectionAdapters::AbstractAdapter.class_eval do
   alias_method :orig_initialize, :initialize

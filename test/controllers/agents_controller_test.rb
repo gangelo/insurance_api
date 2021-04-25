@@ -52,7 +52,7 @@ class AgentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :not_found
 
     json = JSON.parse(response.body)
-    assert_equal json, []
+    assert_equal [], json
   end
 
   # GET /api/agents?phone_number=<numerics-only-phone-number>
@@ -108,6 +108,6 @@ class AgentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :not_found
 
     json = JSON.parse(response.body)
-    assert_equal json, []
+    assert_equal [], json
   end
 end

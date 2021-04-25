@@ -35,6 +35,30 @@ class AgentTest < ActiveSupport::TestCase
     assert_equal 2, gemma.carriers.size
   end
 
+  test 'Gene Angelo should work with Big City' do
+    agent = Agent.find_by(name: 'Gene Angelo')
+    assert agent.carriers.where(name: 'Big City Mutual Insurance').any?
+    assert_equal 1, agent.carriers.size
+  end
+
+  test 'Amy Angelo should work with Big City' do
+    agent = Agent.find_by(name: 'Amy Angelo')
+    assert agent.carriers.where(name: 'Big City Mutual Insurance').any?
+    assert_equal 1, agent.carriers.size
+  end
+
+  test 'Daniel Angelo should work with Big City' do
+    agent = Agent.find_by(name: 'Daniel Angelo')
+    assert agent.carriers.where(name: 'Big City Mutual Insurance').any?
+    assert_equal 1, agent.carriers.size
+  end
+
+  test 'Elijah Angelo should work with Big City' do
+    agent = Agent.find_by(name: 'Elijah Angelo')
+    assert agent.carriers.where(name: 'Big City Mutual Insurance').any?
+    assert_equal 1, agent.carriers.size
+  end
+
   test 'scope with_phone_number should return agents with the given phone number' do
     agents = Agent.with_phone_number('2223334444')
     assert_equal agents.count, 4

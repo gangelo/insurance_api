@@ -6,14 +6,14 @@ class AgentsController < ApplicationController
 
   def show
     agent = Agent.find(params[:id])
-    render json: agent.to_json, status: :ok
+    render json: agent, status: :ok
   rescue ActiveRecord::RecordNotFound
     render json: {}, status: :not_found
   end
 
   def list_with_policies
     if agents_with_policies.present?
-      render json: agents_with_policies.to_json, status: :ok
+      render json: agents_with_policies, serializer: AgentArraySerializer, status: :ok
     else
       render json: [], status: :not_found
     end
@@ -21,7 +21,7 @@ class AgentsController < ApplicationController
 
   def list_with_phone
     if agents_with_phone.present?
-      render json: agents_with_phone.to_json, status: :ok
+      render json: agents_with_phone, serializer: AgentArraySerializer, status: :ok
     else
       render json: [], status: :not_found
     end

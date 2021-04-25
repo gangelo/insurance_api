@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This module helps with handling the inconsistent phone number formats
+# in the database (e.g. Agent#phone_number)
 module PhoneNumbers
   PHONE_NUMBER_RAW_REGEX = /([[:digit:]])?[-. ]?\(?([[:digit:]]{3})\)?[-. ]([[:digit:]]{3})[-.]([[:digit:]]{4})/.freeze
 

@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_170804) do
+ActiveRecord::Schema.define(version: 2021_04_22_194323) do
 
   create_table "agent_carriers", id: false, force: :cascade do |t|
     t.integer "agent_id"
     t.integer "carrier_id"
     t.index ["agent_id"], name: "index_agent_carriers_on_agent_id"
     t.index ["carrier_id"], name: "index_agent_carriers_on_carrier_id"
+  end
+
+  create_table "agent_policies", force: :cascade do |t|
+    t.integer "agent_id"
+    t.integer "policy_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agent_id"], name: "index_agent_policies_on_agent_id"
+    t.index ["policy_id"], name: "index_agent_policies_on_policy_id"
   end
 
   create_table "agents", force: :cascade do |t|
@@ -53,9 +62,24 @@ ActiveRecord::Schema.define(version: 2018_12_05_170804) do
     t.index ["agent_id"], name: "index_licenses_on_agent_id"
   end
 
+  create_table "policies", force: :cascade do |t|
+    t.string "policy_holder"
+    t.decimal "premium_amount", precision: 5, scale: 2
+    t.integer "carrier_id"
+    t.integer "industry_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["carrier_id"], name: "index_policies_on_carrier_id"
+    t.index ["industry_id"], name: "index_policies_on_industry_id"
+  end
+
   add_foreign_key "agent_carriers", "agents"
   add_foreign_key "agent_carriers", "carriers"
+  add_foreign_key "agent_policies", "agents"
+  add_foreign_key "agent_policies", "policies"
   add_foreign_key "carrier_industries", "carriers"
   add_foreign_key "carrier_industries", "industries"
   add_foreign_key "licenses", "agents"
+  add_foreign_key "policies", "carriers"
+  add_foreign_key "policies", "industries"
 end
