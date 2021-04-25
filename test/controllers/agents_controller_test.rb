@@ -41,9 +41,9 @@ class AgentsControllerTest < ActionDispatch::IntegrationTest
     actual = json.each.map { |h| h['id'] }
     expected = [451_584_698, 129_232_768]
 
-    assert_equal actual.count, expected.count
-    assert_includes actual, expected[0]
-    assert_includes actual, expected[1]
+    assert_equal expected.count, actual.count
+    assert actual.include? expected[0]
+    assert actual.include? expected[1]
   end
 
   test 'Returns :not_found and an empty JSON array when no Agents are returned' do
@@ -72,11 +72,11 @@ class AgentsControllerTest < ActionDispatch::IntegrationTest
       Agent.find_by(name: 'Elijah Angelo')
     ].each.map(&:id)
 
-    assert_equal actual.count, expected.count
-    assert_includes actual, expected[0]
-    assert_includes actual, expected[1]
-    assert_includes actual, expected[2]
-    assert_includes actual, expected[3]
+    assert_equal expected.count, actual.count
+    assert actual.include? expected[0]
+    assert actual.include? expected[1]
+    assert actual.include? expected[2]
+    assert actual.include? expected[3]
   end
 
   test 'Returns :ok and a list of Agent JSON objects if Agents are found having the 11-digit phone number' do
@@ -95,11 +95,11 @@ class AgentsControllerTest < ActionDispatch::IntegrationTest
       Agent.find_by(name: 'Elijah Angelo')
     ].each.map(&:id)
 
-    assert_equal actual.count, expected.count
-    assert_includes actual, expected[0]
-    assert_includes actual, expected[1]
-    assert_includes actual, expected[2]
-    assert_includes actual, expected[3]
+    assert_equal expected.count, actual.count
+    assert actual.include? expected[0]
+    assert actual.include? expected[1]
+    assert actual.include? expected[2]
+    assert actual.include? expected[3]
   end
 
   test 'Returns :not_found and an empty JSON array objects if Agents are not found having phone number' do

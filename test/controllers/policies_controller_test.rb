@@ -21,7 +21,7 @@ class PoliciesControllerTest < ActionDispatch::IntegrationTest
     assert_response :ok
 
     json = JSON.parse(response.body)
-    assert_equal json['policy_holder'], 'Sam I Am'
+    assert_equal 'Sam I Am', json['policy_holder']
     assert_not_nil json['carrier']
     assert_not_nil json['industry']
     assert_not_nil json['agent']
@@ -45,7 +45,7 @@ class PoliciesControllerTest < ActionDispatch::IntegrationTest
     assert_response :bad_request
 
     json = JSON.parse(response.body)
-    assert_equal json, ['Policy must be issuable']
+    assert_equal ['Policy must be issuable'], json
   end
 
   test 'Returns :not_found if the agent cannot be found' do
@@ -65,7 +65,7 @@ class PoliciesControllerTest < ActionDispatch::IntegrationTest
     assert_response :not_found
 
     json = JSON.parse(response.body)
-    assert_equal json['error'], 'The Policy could not be created because the Agent having id 9999999999999999 could not be found'
+    assert_equal 'The Policy could not be created because the Agent having id 9999999999999999 could not be found', json['error']
   end
 
   test 'Returns :internal_server_error if an internal server error occurs and the policy cannot be created' do
@@ -86,6 +86,6 @@ class PoliciesControllerTest < ActionDispatch::IntegrationTest
     assert_response :internal_server_error
 
     json = JSON.parse(response.body)
-    assert_equal json['error'], 'The Policy could not be created due to an internal server error'
+    assert_equal 'The Policy could not be created due to an internal server error', json['error']
   end
 end
