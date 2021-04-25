@@ -20,19 +20,4 @@ class Policy < ApplicationRecord
   # more than one policy in the same industry
   # (i.e. multiple companies within the same
   # industry?)
-
-  # This method is NOT a replacement for validate, but is used IAW validate.
-  # This method simply returns true or false depending on whether or not
-  # the agent can issue a policy for the industry, through the given carried.
-  def policy_issuable?
-    return false unless agent && carrier_id? && industry_id?
-
-    self.class.policy_issuable? agent_id: agent.id, carrier_id: carrier_id, industry_id: industry_id
-  end
-
-  private
-
-  def must_be_issuable
-    errors.add(:policy, 'must be issuable') unless policy_issuable?
-  end
 end
