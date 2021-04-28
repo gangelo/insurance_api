@@ -2,7 +2,7 @@
 
 class PoliciesController < ApplicationController
   def create
-    policy = Policy.create(policy_params_with_agent_id_param)
+    policy = Policy.create(policy_params_with_agent)
     if policy.persisted?
       render json: policy, status: :ok
     else
@@ -17,7 +17,7 @@ class PoliciesController < ApplicationController
 
   private
 
-  def policy_params_with_agent_id_param
+  def policy_params_with_agent
     # Since the Policy model association with Agent is :through :agent_policy, there is no :agent_id attribute on the
     # Policy model; just merge the Agent to associate with the policy in to our params so it can be used in the call to
     # Policy.create.
