@@ -17,6 +17,7 @@ class BaseSerializer < ActiveModel::Serializer
     # defined take presidence. This allows us to use some
     # of the other normal as_json options like :only, :except.
     return super.as_json(options) if as_json_options? options
+
     super
   end
 
