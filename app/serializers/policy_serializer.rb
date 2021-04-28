@@ -10,19 +10,33 @@ class PolicySerializer < BaseSerializer
     end
   end
 
-  def agent
-    AgentSerializer.new(object.agent).as_json common_serializer_options
+  def agent_seriaizer_options
+    common_serializer_options
   end
 
-  def carrier
-    CarrierSerializer.new(object.carrier).as_json common_serializer_options
+  def carrier_seriaizer_options
+    common_serializer_options
   end
 
-  def industry
-    IndustrySerializer.new(object.industry).as_json common_serializer_options
+  def industry_seriaizer_options
+    common_serializer_options
   end
 
   def common_serializer_options
     @common_serializer_options ||= { root: false, only: %i[id name] }
+  end
+
+  private
+
+  def agent
+    AgentSerializer.new(object.agent).as_json agent_seriaizer_options
+  end
+
+  def carrier
+    CarrierSerializer.new(object.carrier).as_json carrier_seriaizer_options
+  end
+
+  def industry
+    IndustrySerializer.new(object.industry).as_json industry_seriaizer_options
   end
 end
